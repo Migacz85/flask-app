@@ -2,9 +2,9 @@
 
 For know this repository have minimal setup of flask with bootstrapp. 
 
-### Development
+## Development
 
-## Creating new enviroments for python3 
+### Creating new enviroments for python3 
 
 To start developing the project you need to run this commands:
 
@@ -12,11 +12,11 @@ To start developing the project you need to run this commands:
 python -m venv venv   //initialize new environment.
 source venv/bin/activate //enter to the new environment.
 sudo pip3 install -r requirements.txt // install dependencies from files.
-pytnoh run.py // this will run the flask server.
+python run.py // this will run the flask server.
 deactivate // If you will want to go out from the env you can close virtual env using this command.
 ```
 
-## Other useful commands:
+### Other useful commands:
 
 ```
 sudo pip3 install flask //install flask or other dependencies using this command.
@@ -36,7 +36,7 @@ lsof -i tcp:8080
 kill -9 <PID>
 ```
 
-## Deployment on heroku:
+## Deployment steps on heroku or other platforms:
 
 ```
 heroku apps:info name_of_your_app - display url for your app and heroku git

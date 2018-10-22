@@ -35,3 +35,10 @@ body {
 .active2 {
   color:#94ff9f !important
 }
+
+footer.text-white {
+  position: absolute;
+  bottom: 0;
+  right:0;
+  padding:10px;
+}
