@@ -1,0 +1,19 @@
+[
+  
+    {
+        "question": "What is 2+2",
+        "answer": "4"
+    },
+    {
+        "question": "What back end language was used to create this site ?",
+        "answer": "python"
+    },
+    {
+        "question": "What framework was used in the ux?",
+        "answer": "bootstrap"
+    },
+    {
+        "question": "You done it! You won :-)",
+        "answer": "great"
+    }
+]
