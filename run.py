@@ -8,6 +8,7 @@ app.secret_key = 'secret'
 @app.route('/', methods=["GET", "POST"])
 def index():
     
+
     with open("data/questions.json", "r") as json_data:
         questions = json.load(json_data)
     
@@ -23,6 +24,9 @@ def index():
             session['score']=0
             good_answer=True # Make all answer true
             session['user']=request.form["answer"] # Store users name
+        
+        if 'user' not in session:
+            return redirect(url_for("reset"))
 
         # After 3 bad answers jump to next question
         if session['bad_answers']==3:
@@ -58,6 +62,7 @@ def index():
 def reset():
     session['current_question']=0
     session['bad_answers']=0
+    session['score']=0
     return redirect(url_for("index"))
 
 @app.route('/about')
