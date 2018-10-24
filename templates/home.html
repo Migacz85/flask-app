@@ -5,14 +5,15 @@
         <div class="form-group col-md-6 ">
 
                 <h1>{{question}} </h1>
-                {% if question_number+1!=4 %}
+                {% if question_number+1!=5 %}
                 <h2>Current question: {{question_number+1}}</h2>
                 {% else %}
                 <h2>Game Over </h2>
+                <p>Your score is: {{score}}</p>
                 <a class="btn btn-primary "  href="{{ url_for('reset') }}">restart</a>
                 {% endif %}
                 <p></p>
-                {% if question_number+1<4 %}
+                {% if question_number+1<5 %}
                 <input class="form-control" placeholder="Enter your answer" name="answer">
                 <p></p>
 
@@ -25,14 +26,14 @@
 {% with messages = get_flashed_messages() %}
 {% if messages %}
         {%for message in messages %}
-                {% if message=="Correct" and question_number+1!=4 %}
+                {% if message=="Correct" and question_number+1!=5 %}
                 <div class="row align-items-center justify-content-center">
 
                         <div class="col-md-6 col-xs-10 alert alert-success" role="alert">
-                                <strong>{{message}}</strong>
+                                <strong>{{message}}</strong> Current score: {{score}}
                         </div>
                 </div>
-                {% elif message=="Bad Answer" and question_number+1!=4%}
+                {% elif message=="Bad Answer" and question_number+1!=5%}
                 <div class="row align-items-center justify-content-center">
 
                         <div class="col-md-6 alert alert-warning" role="alert">
