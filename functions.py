@@ -9,6 +9,9 @@ points = 0
 last_question = len(questions)
 all_users=[]
 
+def question(question_number):
+    question=questions[question_number]['question']
+    return question
 
 def good_answer(user_answer, question_number, questions):
     if question_number==0:
@@ -59,7 +62,7 @@ def lb_update_player_score(session_user, score, user_list):
 
 def lb_winner(user_list):
     max=0
-    user=None
+    user=''
     for user_points in user_list:
         if max < user_points[1]:
             max= user_points[1]
@@ -69,11 +72,22 @@ def lb_winner(user_list):
 def lb_sorted(user_list):
     ranking=[] #sorted list
     unsorted=list(user_list)
+    
     while len(unsorted)>0:
         ranking.append(lb_winner(unsorted))
         unsorted.remove(lb_winner(unsorted))
 
     return ranking
+
+
+def lb_position(player_name, user_list):
+    my_list_len=len(user_list)
+    for i in range(0, my_list_len):
+        if user_list[i][0]==player_name:
+            return i    
+    
+            
+
 
 
 # Good answer need to match with answers from answers.json
@@ -134,6 +148,12 @@ test_are_equal(lb_sorted(all_users), [['John', 43],['Tomek', 35], ['Marcin',25] 
 lb_add_stats('Johny', 38, all_users)
 test_are_equal(lb_sorted(all_users), [['John', 43],['Johny', 38] ,['Tomek', 35], ['Marcin',25] ] )
 
+# Leaderboar can check actual postion of player
 
+test_are_equal(lb_position('John', lb_sorted(all_users)), 0)
+test_are_equal(lb_position('Tomek',lb_sorted(all_users)), 2)
+
+
+ 
 print('tests passed')
 
