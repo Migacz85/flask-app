@@ -30,7 +30,7 @@
                 <div class="row align-items-center justify-content-center">
 
                         <div class="col-md-6 col-xs-10 alert alert-success" role="alert">
-                                <strong>{{message}}c</strong> Current score: {{score}}
+                                <strong>{{message}}</strong> Current score: {{score}}
                         </div>
                 </div>
                 {% elif message=="Bad Answer" and question_number+1!=5%}
@@ -44,6 +44,27 @@
                 {% endif %}
         {% endfor%}
 {% endif %}
+<div class="card">
+        <div class="card-body">
+                <h4 class="card-title">Users</h4>
+                
+                
+                {{check}}
+                Players:
+                
+                {% for user, score in users %}
+                {{ user }}
+                {{ score }}
+                points
+                {% endfor %}
+
+
+                
+                <p class="card-text"></p>
+        </div>
+</div>
+
+
 
 {% endwith %}
 {% endblock content%}
