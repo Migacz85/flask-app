@@ -5,7 +5,7 @@
         <div class="form-group col-md-6 ">
 
                 <h1>{{question}} </h1>
-                {% if question_number+1!=5 %}
+                {% if question_number<last_question-1 %}
                 <h2>Current question: {{question_number+1}}</h2>
                 {% else %}
                 <h2>Game Over </h2>
@@ -13,7 +13,7 @@
                 <a class="btn btn-primary "  href="{{ url_for('reset') }}">restart</a>
                 {% endif %}
                 <p></p>
-                {% if question_number+1<5 %}
+                {% if question_number!=last_question-1 %}
                 <input class="form-control" placeholder="Enter your answer" name="answer">
                 <p></p>
 
@@ -40,22 +40,45 @@
                                 <strong>{{message}}</strong>
                         </div>
                 </div>                          
-                {% elif message=="" %}                      
+                {% elif message=="" %}  
+                
+                {% elif message=="User already in leaderboard"%}
+                <div class="row align-items-center justify-content-center">
+
+                        <div class="col-md-6 alert alert-warning" role="alert">
+                                <strong>{{message}}</strong>
+                        </div>
+                </div>                          
+                {% elif message=="" %}  
+
                 {% endif %}
         {% endfor%}
 {% endif %}
+<br>
+<div class="row align-items-center justify-content-center">
+<div class="col-md-6 " >
 <div class="card">
         <div class="card-body">
-                <h4 class="card-title">Users</h4>
+                <h4 class="card-title">Live Leaderboard:</h4>
                 
-                
-                {{check}}
-                Players:
+                Current winner is:
+                {{ winner[0] }} 
+                <br>
                 
                 {% for user, score in users %}
+                
+                {% if user==user_name %}
+                <b> {{user}} {{score}} </b> 
+                <br>
+                {% endif %}
+                
+                {% if user!=user_name %}
+                
                 {{ user }}
-                {{ score }}
-                points
+                {{ score }} 
+                <br>
+                {% endif %}
+
                 {% endfor %}
 
 
@@ -63,8 +86,8 @@
                 <p class="card-text"></p>
         </div>
 </div>
-
-
+</div>
+</div>
 
 {% endwith %}
 {% endblock content%}

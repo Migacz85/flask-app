@@ -1,17 +1,23 @@
 [
     {
-        "question": "Hi, whats your name?"
-    },
-    {
         "question": "What is 2+2",
         "answer": "4"
     },
     {
-        "question": "What back end language was used to create this site ?",
-        "answer": "python"
+        "question": "3*4/2",
+        "answer": "6"
     },
     {
-        "question": "What framework was used in the ux?",
+        "question": "4/2*3",
+        "answer": "6"
+    },
+    {
+        "question": "3*4/3",
+        "answer": "4"
+    },
+    {
+        "question":"Well done :-)",
         "answer": "bootstrap"
     }
+    
 ]

@@ -32,7 +32,7 @@ if user_answer=='1':
                 if question_number!=0:
                     player_score+=3-bad_answers
                     lb_update_player_score(player_name, player_score, all_users)
-                    all_users=lb_sorted(all_users) # error 
+                    all_users=lb_sorted(all_users) 
                     print('Current users stats:', all_users)
                     print('Current winner: ', lb_winner(all_users))
                     position=lb_position(player_name, all_users)

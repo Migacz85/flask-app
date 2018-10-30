@@ -1,6 +1,6 @@
 from tests import *
 from flask import json
-       
+
   
 with open("data/questions.json", "r") as json_data:
     questions = json.load(json_data)
@@ -14,13 +14,12 @@ def question(question_number):
     return question
 
 def good_answer(user_answer, question_number, questions):
-    if question_number==0:
-        return True
-
+    test=False
     if user_answer==questions[question_number]['answer']:
-        return True
+        test=True
     else: 
-        return False
+        test=False
+    return test
 
 def next_answer(bad_answers, good_answer):            
     if good_answer==1:
@@ -71,11 +70,12 @@ def lb_winner(user_list):
 
 def lb_sorted(user_list):
     ranking=[] #sorted list
+    unsorted=0
     unsorted=list(user_list)
     
-    while len(unsorted)>0:
-        ranking.append(lb_winner(unsorted))
-        unsorted.remove(lb_winner(unsorted))
+    while lb_winner(unsorted) in unsorted:
+                ranking.append(lb_winner(unsorted))
+                unsorted.remove(lb_winner(unsorted))
 
     return ranking
 
@@ -88,24 +88,18 @@ def lb_position(player_name, user_list):
     
             
 
-
-
 # Good answer need to match with answers from answers.json
-    # Answer to second question is 4
-test_are_equal(good_answer('4', 1, questions), True)   # Good Answer
-test_not_equal(good_answer('6', 1, questions), True ) # Bad Answer
-
-# Whatever user say on first question it need to be a good answer
-test_are_equal(good_answer('Ken', 0, questions), True) 
-test_are_equal(good_answer('John', 0, questions), True)
+    # Answer to first question is 4
+test_are_equal(good_answer('4', 0, questions), True)   # Good Answer
+test_are_equal(good_answer('seven', 0, questions), False ) # Bad Answer
 
 ## next_answer is:
 # Next question must be given when user answer badly 3 times
 test_are_equal(next_answer(3,0), True)
 
 # Next question must be given when user answer correctly
-test_are_equal(next_answer(1,good_answer('4', 1, questions)), True )
-test_are_equal(next_answer(2,good_answer('4', 1, questions)), True )
+test_are_equal(next_answer(1,good_answer('4', 0, questions)), True )
+test_are_equal(next_answer(2,good_answer('4', 0, questions)), True )
 
 ## score is:
 # When user answer correctly at first attempt 3 points need to be added to score
@@ -139,6 +133,8 @@ test_are_equal(lb_update_player_score('Tomek', 35, all_users ), [['Marcin',25], 
 # Leaderboard is finding player stats who have most points
 
 test_are_equal(lb_winner(all_users), ['Tomek', 35])
+test_are_equal(lb_winner([]), "")
+test_are_equal(lb_winner(""), "")
 
 # Leaderboard is sorting players by points
 
@@ -148,12 +144,12 @@ test_are_equal(lb_sorted(all_users), [['John', 43],['Tomek', 35], ['Marcin',25] 
 lb_add_stats('Johny', 38, all_users)
 test_are_equal(lb_sorted(all_users), [['John', 43],['Johny', 38] ,['Tomek', 35], ['Marcin',25] ] )
 
+test_are_equal(lb_sorted([]),[])
+
 # Leaderboar can check actual postion of player
 
 test_are_equal(lb_position('John', lb_sorted(all_users)), 0)
 test_are_equal(lb_position('Tomek',lb_sorted(all_users)), 2)
 
-
- 
 print('tests passed')
 
