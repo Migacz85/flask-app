@@ -1,10 +1,55 @@
-# Boilerplate - Flask with bootsrap
+# Math quiz
 
-For know this repository have minimal setup of flask with bootstrapp. 
+This project is a simple math quiz.
 
 ## Development
 
-### Creating new enviroments for python3 
+# UX
+
+The main idea in this UX process design was:
+
+- Keep it simple.
+- Focus to use bootstrap when possible.
+- Deliver clean easy to read design.
+
+### User Stories / Automated tests
+
+- Next question must be given when user answer badly 3 times
+- Next question must be given when user answer correctly
+- When user answer correctly at first attempt 3 points need to be added to score
+- When user answer correctly on next question points need to add on
+- When user is on the last question game over is shown
+- Storing name and score of all players
+- Checking that user is already in leaderboard 
+- Update player score in leaderboard by name 
+- Leaderboard is finding player stats who have most points
+- Leaderboard is sorting players by points
+- Leaderboard can check actual position of player
+
+### Technologies Used:
+
+- Python
+- Flask
+- Bootstrap
+
+### Testing:
+
+Automated tests are applied in game_functions.py and are identical as user stories.
+In project, you can find also a cligame.py which is simple game simulation that works in terminal and is using functions from game_functions. 
+
+For writing and testing individual functions it is much faster to do that in terminal using cligame.py than testing directly in browser. 
+
+Tests are done every time a run.py or cligame.py is executed.
+
+## Installation
+
+First clone the project:
+
+```
+git clone https://github.com/Migacz85/flask-app.git
+```
+
+### Creating new environments for python3: 
 
 To start developing the project you need to run this commands:
 
@@ -36,6 +81,7 @@ lsof -i tcp:8080
 kill -9 <PID>
 ```
 
+
 ## Deployment steps on heroku or other platforms:
 
 ```
@@ -54,3 +100,15 @@ add IP on 0.0.0.0
 add PORT on 5000
 restart server
 ```
+
+## Credits
+
+### Media
+- Background picture used in this site was taken from https://www.pexels.com/
+
+### Acknowledgements
+
+- Great thanks to codeinstitute.net for explaining me basics with python & flask
+- When making this project I found @mormoran very helpfull from slack. Thank You too!
+
+
