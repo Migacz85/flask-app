@@ -9,7 +9,7 @@
                 <h2>Current question: {{question_number+1}}</h2>
                 {% else %}
                 <h2>Game Over </h2>
-                <p>Your score is: {{score}}</p>
+                <h4>Your score is: {{score}}</h4>
                 <a class="btn btn-primary "  href="{{ url_for('reset') }}">restart</a>
                 {% endif %}
                 <p></p>
@@ -68,13 +68,14 @@
                 {% for user, score in users %}
                 
                 {% if user==user_name %}
+                <b> {{ users.index( [user,score] )+1 }}</b> .
                 <b> {{user}} {{score}} </b> 
                 <br>
                 {% endif %}
                 
                 {% if user!=user_name %}
-                
-                {{ user }}
+                {{ users.index( [user,score] )+1 }} .
+                {{  user }}
                 {{ score }} 
                 <br>
                 {% endif %}

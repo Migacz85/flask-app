@@ -1,13 +1,16 @@
-from tests import *
+from tests_functions import test_are_equal, test_not_equal
 from flask import json
 
-  
+
+
 with open("data/questions.json", "r") as json_data:
     questions = json.load(json_data)
 
 points = 0
 last_question = len(questions)
 all_users=[]
+
+# Basic game functions: 
 
 def question(question_number):
     question=questions[question_number]['question']
@@ -53,7 +56,6 @@ def lb_check_for_user(session_user, user_list):
         return test
 
 def lb_update_player_score(session_user, score, user_list):
-        test=False
         for user_stats in user_list:
             if user_stats[0] == session_user:
                user_stats[1] = score
@@ -76,9 +78,7 @@ def lb_sorted(user_list):
     while lb_winner(unsorted) in unsorted:
                 ranking.append(lb_winner(unsorted))
                 unsorted.remove(lb_winner(unsorted))
-
     return ranking
-
 
 def lb_position(player_name, user_list):
     my_list_len=len(user_list)
@@ -86,6 +86,7 @@ def lb_position(player_name, user_list):
         if user_list[i][0]==player_name:
             return i    
     
+###################### AUTOMATED TESTS ##############################
             
 
 # Good answer need to match with answers from answers.json

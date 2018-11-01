@@ -1,4 +1,4 @@
-from functions import *
+from game_functions import lb_add_stats, lb_check_for_user, lb_position, lb_sorted, game_over, question, good_answer, questions, lb_update_player_score, lb_winner, next_answer, good_answer, questions
 
 question_number=0
 bad_answers=0
@@ -6,10 +6,6 @@ all_users=[]
 player_score = 0 
 user_answer =0
 ranking=[]
-
-#lb_add_stats('Marcin', 23, all_users)
-#lb_add_stats('Tomek', 24, all_users)
-
 
 user_answer=input('1. game simulation 2. Manual test parts of code: ')
 

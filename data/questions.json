@@ -1,19 +1,27 @@
 [
     {
-        "question": "What is 2+2",
+        "question": "What is 2+2 ?",
         "answer": "4"
     },
     {
-        "question": "3*4/2",
+        "question": "2+3-9 = ?",
+        "answer": "-4"
+    },
+    {
+        "question": "4/2*3 = ?",
         "answer": "6"
     },
     {
-        "question": "4/2*3",
-        "answer": "6"
+        "question": "-9+5-7 = ?",
+        "answer": "-11"
     },
     {
-        "question": "3*4/3",
-        "answer": "4"
+        "question": "-4+5/10 = ?",
+        "answer": "-3,5"
+    },
+    {
+        "question": "4-4/8 = ?",
+        "answer": "3,5"
     },
     {
         "question":"Well done :-)",

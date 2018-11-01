@@ -1,6 +1,6 @@
 import os
 from flask import Flask, render_template, request, flash, json, session, redirect, url_for
-from functions import lb_check_for_user, lb_update_player_score, lb_sorted, good_answer, lb_winner
+from game_functions import lb_check_for_user, lb_update_player_score, lb_sorted, good_answer, lb_winner
 
 app = Flask(__name__)
 app.secret_key = 'secret'
