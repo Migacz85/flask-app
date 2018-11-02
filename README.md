@@ -1,10 +1,10 @@
 # Math quiz
 
-This project is a simple math quiz.
+This project is a simple math quiz coded using python&flask.
 
 ## Development
 
-# UX
+## UX
 
 The main idea in this UX process design was:
 
@@ -12,7 +12,7 @@ The main idea in this UX process design was:
 - Focus to use bootstrap when possible.
 - Deliver clean easy to read design.
 
-### User Stories / Automated tests
+## User Stories / Automated tests
 
 - Next question must be given when user answer badly 3 times
 - Next question must be given when user answer correctly
@@ -26,13 +26,24 @@ The main idea in this UX process design was:
 - Leaderboard is sorting players by points
 - Leaderboard can check actual position of player
 
-### Technologies Used:
+## Technologies Used:
 
 - Python
 - Flask
 - Bootstrap
 
-### Testing:
+## Features 
+
+- Asking player a question and comparing them with prepared answers form file
+- Showing all playing users on leaderboard
+- Ranking players
+- 
+
+### Features left to implement
+
+- Show players stats without refreshing the browser
+
+## Testing:
 
 Automated tests are applied in game_functions.py and are identical as user stories.
 In project, you can find also a cligame.py which is simple game simulation that works in terminal and is using functions from game_functions. 

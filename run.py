@@ -20,10 +20,15 @@ def index():
     if  session['user']=="":
         return redirect(url_for("user"))
 
+    session['good-answer']='none'
+    user_answer='none'
+    
     if request.method == "POST":        
         #   Check if user answer is correct
+        session['good-answer']=good_answer(request.form["answer"],session['current_question'] ,questions)
         session['next-answer']=good_answer(request.form["answer"],session['current_question'] ,questions)
-    
+        user_answer=request.form["answer"]
+
         # Increment current_question when next_answer is true and don't when is a last question
         if session['next-answer'] and len(questions)!=session['current_question']: 
             session['current_question']=session['current_question']
@@ -48,7 +53,7 @@ def index():
              session['current_question']=0
 
         if session['next-answer']:        
-            flash("{}".format('Correct'))
+            flash("{}".format('Next Question'))
         elif request.form["answer"]=="":
             flash("{}".format(''))
         else: 
@@ -63,6 +68,7 @@ def index():
         if all_users!=[]:
             ranking=lb_sorted(all_users) 
     
+    
 
     return render_template("home.html", 
     active_page='index', 
@@ -70,6 +76,8 @@ def index():
     question_number=session['current_question'],
     score=session['score'],
     users=ranking,
+    user_answer=user_answer,
+    good_answer=session['good-answer'],
     last_question=len(questions),
     user_name=session['user'],
     winner=lb_winner(all_users),
