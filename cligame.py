@@ -63,6 +63,7 @@ elif  user_answer=='2':
 
     position=lb_position(player_name, lb_sorted(all_users))
     
+    print(next_answer(2,0))
     print(position)
 
 

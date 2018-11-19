@@ -1,8 +1,6 @@
 from tests_functions import test_are_equal, test_not_equal
 from flask import json
 
-
-
 with open("data/questions.json", "r") as json_data:
     questions = json.load(json_data)
 
@@ -30,6 +28,8 @@ def next_answer(bad_answers, good_answer):
     if bad_answers==3:
         bad_answers=0
         return True
+    return False
+
         
 def score(bad_answers):
     global points
@@ -88,7 +88,6 @@ def lb_position(player_name, user_list):
     
 ###################### AUTOMATED TESTS ##############################
             
-
 # Good answer need to match with answers from answers.json
     # Answer to first question is 4
 test_are_equal(good_answer('4', 0, questions), True)   # Good Answer
@@ -101,6 +100,8 @@ test_are_equal(next_answer(3,0), True)
 # Next question must be given when user answer correctly
 test_are_equal(next_answer(1,good_answer('4', 0, questions)), True )
 test_are_equal(next_answer(2,good_answer('4', 0, questions)), True )
+test_are_equal(next_answer(2,0), False )
+
 
 ## score is:
 # When user answer correctly at first attempt 3 points need to be added to score

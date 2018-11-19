@@ -37,7 +37,6 @@ The main idea in this UX process design was:
 - Asking player a question and comparing them with prepared answers form file
 - Showing all playing users on leaderboard
 - Ranking players
-- 
 
 ### Features left to implement
 
